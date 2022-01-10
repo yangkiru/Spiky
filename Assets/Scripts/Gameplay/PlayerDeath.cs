@@ -21,8 +21,9 @@ namespace Platformer.Gameplay
             {
                 player.health.Die();
                 player.move *= 0;
-                player.body.velocity *= 0;
-                player.body.angularVelocity = 0;
+                player.moveCool = 0;
+                player.body.rotation = 0;
+                player.body.constraints = RigidbodyConstraints2D.FreezeRotation;
                 model.virtualCamera.m_Follow = null;
                 model.virtualCamera.m_LookAt = null;
                 // player.collider.enabled = false;

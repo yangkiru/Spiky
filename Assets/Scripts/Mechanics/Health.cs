@@ -22,6 +22,10 @@ namespace Platformer.Mechanics
 
         int currentHP;
 
+        public void SetFull() {
+            currentHP = maxHP;
+        }
+
         /// <summary>
         /// Increment the HP of the entity.
         /// </summary>
@@ -52,9 +56,8 @@ namespace Platformer.Mechanics
             while (currentHP > 0) Decrement();
         }
 
-        void Awake()
-        {
-            currentHP = maxHP;
+        void Awake() {
+            SetFull();
         }
     }
 }

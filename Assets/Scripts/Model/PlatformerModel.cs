@@ -1,3 +1,5 @@
+using System;
+using System.Collections.Generic;
 using Platformer.Mechanics;
 using UnityEngine;
 
@@ -37,6 +39,8 @@ namespace Platformer.Model
         /// the user releases the jump input.
         /// </summary>
         public float jumpDeceleration = 0.5f;
+
+        public List<EnemyController> deadEnemies = new List<EnemyController>();
 
     }
 }

@@ -32,8 +32,10 @@ namespace Platformer.Mechanics
         public float jumpCoolMax;
         public float jumpCool = 0;
 
+        public float moveCool = 0;
         public JumpState jumpState = JumpState.JumpReady;
         private bool stopJump;
+        private float stopTime;
         /*internal new*/ public CircleCollider2D collider2d;
         /*internal new*/ public AudioSource audioSource;
         public Health health;
@@ -41,6 +43,7 @@ namespace Platformer.Mechanics
 
         bool jump;
         public Vector2 move;
+        private Vector2 velocity;
         SpriteRenderer spriteRenderer;
         internal Animator animator;
         readonly PlatformerModel model = Simulation.GetModel<PlatformerModel>();
@@ -94,26 +97,31 @@ namespace Platformer.Mechanics
             spriteRenderer = GetComponent<SpriteRenderer>();
             animator = GetComponent<Animator>();
             body = GetComponent<Rigidbody2D>();
+            Schedule<EnablePlayerInput>(2f);
         }
 
         protected void Update()
         {
             if (controlEnabled)
             {
-                if (jumpState == JumpState.JumpReady || jumpState == JumpState.PrepareToJump)
-                    move.x = Input.GetAxis("Horizontal")*speed;
+                if (jumpState == JumpState.JumpReady || jumpState == JumpState.PrepareToJump) {
+                    moveCool = Mathf.Min(moveCool+Time.deltaTime*2, 1);
+                    move.x = Input.GetAxis("Horizontal") * speed;
+                }
+
                 if (jumpState == JumpState.JumpReady && Input.GetButton("Jump")) {
                     jumpState = JumpState.PrepareToJump;
                     jumpTime = 0;
                 }
-                else if (jumpState == JumpState.PrepareToJump && Input.GetButtonUp("Jump"))
-                {
+                else if (jumpState == JumpState.PrepareToJump && Input.GetButtonUp("Jump")) {
+                    moveCool = 0;
                     stopJump = true;
                     jumpState = JumpState.Jumping;
                     controlEnabled = false;
                 }
             }
-            UpdateJumpState();
+            if (health.IsAlive)
+                UpdateJumpState();
         }
 
         void UpdateJumpState()
@@ -127,6 +135,7 @@ namespace Platformer.Mechanics
                     jumpTime += Time.deltaTime;
                     
                     if (jumpTime >= jumpMax) {
+                        moveCool = 0;
                         stopJump = true;
                         jumpState = JumpState.Jumping;
                         controlEnabled = false;
@@ -144,13 +153,18 @@ namespace Platformer.Mechanics
                     if (bouncePeak != 0 && bouncePeak < 3f) {
                         move = Vector2.zero;
                         jumpState = JumpState.Landed;
+                        stopTime = 0;
                     }
                     break;
                 case JumpState.Landed:
-                    var velocity = body.velocity;
-                    velocity = new Vector2(velocity.x * 0.995f, velocity.y);
-                    body.velocity = velocity;
-                    if (jumpCool > 0 && Mathf.Abs(body.velocity.x) < 0.5f) jumpCool -= Time.deltaTime;
+                    if (Mathf.Abs(body.velocity.y) > 3) {
+                        // Falling again
+                        jumpState = JumpState.Bounce;
+                        jumpCool = jumpCoolMax;
+                    }
+                    if (jumpCool > 0 && Mathf.Abs(body.velocity.x) < 0.1f && Mathf.Abs(body.velocity.y) < 0.1f) {
+                        jumpCool -= Time.deltaTime;
+                    }
                     else if (jumpCool <= 0) {
                         controlEnabled = true;
                         jumpState = JumpState.JumpReady;
@@ -164,14 +178,20 @@ namespace Platformer.Mechanics
             // RaycastHit2D raycastHit = Physics2D.CircleCast(Bounds.center, collider2d.radius, Vector2.down, 0, groundMask);
             // IsGrounded = raycastHit;
             if (jumpState == JumpState.PrepareToJump) {
-                //move.y = jumpPower;
-                body.velocity = new Vector2(body.velocity.x, jumpPower);
+                velocity.x = body.velocity.x;
+                velocity.y = jumpPower;
+                body.velocity = velocity;
+            } else if (jumpState == JumpState.JumpReady) {
+                velocity.x = move.x * moveCool;
+                velocity.y = body.velocity.y;
+                body.velocity = velocity;
+            } else if (jumpState == JumpState.Landed) {
+                if (velocity.y < 0.1f)
+                    stopTime += Time.deltaTime;
+                velocity.x = Mathf.Lerp(body.velocity.x, 0, stopTime * 0.1f);
+                velocity.y = body.velocity.y;
+                body.velocity = velocity;
             }
-            else
-                move.y = body.velocity.y;
-
-            if (jumpState == JumpState.JumpReady)
-                body.velocity = move;
         }
 
         public enum JumpState

@@ -1,5 +1,6 @@
 using Platformer.Core;
 using Platformer.Mechanics;
+using UnityEngine;
 
 namespace Platformer.Gameplay
 {
@@ -15,6 +16,9 @@ namespace Platformer.Gameplay
         {
             enemy._collider.enabled = false;
             enemy.control.enabled = false;
+            enemy.control.body.isKinematic = true;
+            enemy.control.animator.SetBool("death", true);
+            GameController.Instance.model.deadEnemies.Add(enemy);
             if (enemy._audio && enemy.ouch)
                 enemy._audio.PlayOneShot(enemy.ouch);
         }

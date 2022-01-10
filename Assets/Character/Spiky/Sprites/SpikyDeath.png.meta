@@ -1,0 +1,456 @@
+fileFormatVersion: 2
+guid: a167cfc6e3b8e304db470e670b7961d3
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 4539262818586485791
+    second: SpikyDeath_0
+  - first:
+      213: 3405284893846560259
+    second: SpikyDeath_1
+  - first:
+      213: 3883144459163374673
+    second: SpikyDeath_2
+  - first:
+      213: 5384248295277920348
+    second: SpikyDeath_3
+  - first:
+      213: -3340143030045435949
+    second: SpikyDeath_4
+  - first:
+      213: 2206462158086311755
+    second: SpikyDeath_5
+  - first:
+      213: 2327004192075714583
+    second: SpikyDeath_6
+  - first:
+      213: -298061394570531769
+    second: SpikyDeath_7
+  - first:
+      213: -7026900067780991342
+    second: SpikyDeath_8
+  - first:
+      213: -8428993197509814178
+    second: SpikyDeath_9
+  - first:
+      213: -1041055446961820283
+    second: SpikyDeath_10
+  - first:
+      213: 2779030229572181662
+    second: SpikyDeath_11
+  - first:
+      213: 4027723686882249717
+    second: SpikyDeath_12
+  - first:
+      213: -4201304752329505362
+    second: SpikyDeath_13
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SpikyDeath_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 72
+        height: 120
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f146cf3cb73befe30800000000000000
+      internalID: 4539262818586485791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpikyDeath_1
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 0
+        width: 72
+        height: 120
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30e5ab8a190024f20800000000000000
+      internalID: 3405284893846560259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpikyDeath_2
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 0
+        width: 72
+        height: 120
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15495f3df43b3e530800000000000000
+      internalID: 3883144459163374673
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpikyDeath_3
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 0
+        width: 72
+        height: 120
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c500b8e2c41b8ba40800000000000000
+      internalID: 5384248295277920348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpikyDeath_4
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 0
+        width: 72
+        height: 120
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d7152b6c9d65a1d0800000000000000
+      internalID: -3340143030045435949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpikyDeath_5
+      rect:
+        serializedVersion: 2
+        x: 365
+        y: 0
+        width: 72
+        height: 120
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b4f831774adee9e10800000000000000
+      internalID: 2206462158086311755
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpikyDeath_6
+      rect:
+        serializedVersion: 2
+        x: 438
+        y: 0
+        width: 72
+        height: 120
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7109483dbfd2b4020800000000000000
+      internalID: 2327004192075714583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpikyDeath_7
+      rect:
+        serializedVersion: 2
+        x: 511
+        y: 0
+        width: 72
+        height: 120
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74cad57adb21ddbf0800000000000000
+      internalID: -298061394570531769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpikyDeath_8
+      rect:
+        serializedVersion: 2
+        x: 584
+        y: 0
+        width: 72
+        height: 120
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 296eeb35e9f6b7e90800000000000000
+      internalID: -7026900067780991342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpikyDeath_9
+      rect:
+        serializedVersion: 2
+        x: 657
+        y: 0
+        width: 72
+        height: 120
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e585e387853360b80800000000000000
+      internalID: -8428993197509814178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpikyDeath_10
+      rect:
+        serializedVersion: 2
+        x: 730
+        y: 0
+        width: 72
+        height: 120
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58dea54369d6d81f0800000000000000
+      internalID: -1041055446961820283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpikyDeath_11
+      rect:
+        serializedVersion: 2
+        x: 803
+        y: 0
+        width: 72
+        height: 120
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9ed8b51549119620800000000000000
+      internalID: 2779030229572181662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpikyDeath_12
+      rect:
+        serializedVersion: 2
+        x: 876
+        y: 0
+        width: 72
+        height: 120
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5fb0b0a7a5955e730800000000000000
+      internalID: 4027723686882249717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SpikyDeath_13
+      rect:
+        serializedVersion: 2
+        x: 949
+        y: 0
+        width: 72
+        height: 120
+      alignment: 9
+      pivot: {x: 0.5, y: 0.06666667}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea54d345697f1b5c0800000000000000
+      internalID: -4201304752329505362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

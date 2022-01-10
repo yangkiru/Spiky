@@ -25,6 +25,7 @@ namespace Platformer.Gameplay
             if (willHurtEnemy)
             {
                 var enemyHealth = enemy.GetComponent<Health>();
+                enemy.control.animator.SetTrigger("hurt");
                 if (enemyHealth != null)
                 {
                     enemyHealth.Decrement();
@@ -45,7 +46,7 @@ namespace Platformer.Gameplay
                 }
             }
             else
-            {
+            { 
                 Schedule<PlayerDeath>();
             }
         }

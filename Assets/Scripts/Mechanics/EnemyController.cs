@@ -14,12 +14,14 @@ namespace Platformer.Mechanics
     {
         public PatrolPath path;
         public AudioClip ouch;
+        public Transform tf { get; private set; }
 
         internal PatrolPath.Mover mover;
         internal AnimationController control;
         internal Collider2D _collider;
         internal AudioSource _audio;
         SpriteRenderer spriteRenderer;
+        private Vector2 respawnPosition;
 
         public Bounds Bounds => _collider.bounds;
 
@@ -29,6 +31,8 @@ namespace Platformer.Mechanics
             _collider = GetComponent<Collider2D>();
             _audio = GetComponent<AudioSource>();
             spriteRenderer = GetComponent<SpriteRenderer>();
+            tf = transform;
+            respawnPosition = tf.position;
         }
 
         void OnCollisionEnter2D(Collision2D collision)
