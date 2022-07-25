@@ -24,6 +24,7 @@ namespace Platformer.Mechanics
         /// Max horizontal speed of the player.
         /// </summary>
         public float speed = 7;
+        public float slip = 0;
         
         public float jumpMax = 10;
         public float jumpPower = 0;
@@ -34,7 +35,6 @@ namespace Platformer.Mechanics
 
         public float moveCool = 0;
         public JumpState jumpState = JumpState.JumpReady;
-        private bool stopJump;
         private float stopTime;
         /*internal new*/ public CircleCollider2D collider2d;
         /*internal new*/ public AudioSource audioSource;
@@ -114,10 +114,7 @@ namespace Platformer.Mechanics
                     jumpTime = 0;
                 }
                 else if (jumpState == JumpState.PrepareToJump && Input.GetButtonUp("Jump")) {
-                    moveCool = 0;
-                    stopJump = true;
-                    jumpState = JumpState.Jumping;
-                    controlEnabled = false;
+                    DisableControl();
                 }
             }
             if (health.IsAlive)
@@ -131,14 +128,10 @@ namespace Platformer.Mechanics
             {
                 case JumpState.PrepareToJump:
                     jump = true;
-                    stopJump = false;
                     jumpTime += Time.deltaTime;
                     
                     if (jumpTime >= jumpMax) {
-                        moveCool = 0;
-                        stopJump = true;
-                        jumpState = JumpState.Jumping;
-                        controlEnabled = false;
+                        DisableControl();
                     }
                     break;
                 case JumpState.Jumping:
@@ -175,23 +168,37 @@ namespace Platformer.Mechanics
 
         private void FixedUpdate() {
             IsGrounded = false;
-            // RaycastHit2D raycastHit = Physics2D.CircleCast(Bounds.center, collider2d.radius, Vector2.down, 0, groundMask);
-            // IsGrounded = raycastHit;
+            if (slip > 0) slip -= Time.deltaTime;
+            else slip = 0;
             if (jumpState == JumpState.PrepareToJump) {
                 velocity.x = body.velocity.x;
                 velocity.y = jumpPower;
                 body.velocity = velocity;
-            } else if (jumpState == JumpState.JumpReady) {
-                velocity.x = move.x * moveCool;
+            } else if (jumpState == JumpState.JumpReady) { // moveable
+                float m = move.x * moveCool;
+                
                 velocity.y = body.velocity.y;
-                body.velocity = velocity;
-            } else if (jumpState == JumpState.Landed) {
+                if (Mathf.Abs(body.velocity.x) <= Mathf.Abs(m)) {
+                    velocity.x = m;
+                    body.velocity = velocity;
+                }
+                else { // slip
+                    velocity.x = Mathf.Lerp(m, body.velocity.x, slip);
+                    body.velocity = velocity;
+                }
+            } else if (jumpState == JumpState.Landed) { // landing
                 if (velocity.y < 0.1f)
                     stopTime += Time.deltaTime;
-                velocity.x = Mathf.Lerp(body.velocity.x, 0, stopTime * 0.1f);
+                    velocity.x = Mathf.Lerp(body.velocity.x, 0, stopTime * 0.1f);
                 velocity.y = body.velocity.y;
                 body.velocity = velocity;
             }
+        }
+
+        public void DisableControl(){
+            moveCool = 0;
+            jumpState = JumpState.Jumping;
+            controlEnabled = false;
         }
 
         public enum JumpState
